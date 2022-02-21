@@ -1,9 +1,3 @@
-# -*- coding: utf-8 -*-
-"""
-Created on Tue Jan 25 10:04:37 2022
-
-@author: Andres
-"""
 import requests
 import re
 import argparse
@@ -25,16 +19,7 @@ def download(url, num_retries = 2, user_agent = 'wswp'):
         print('Download error:', e.reason)
         html = None
     return html
-    
-# =============================================================================
-# def get_names(html):
-#     links_regex = re.compile(
-#         """<div class=["']views-row views-row-.*[\n\t]*.*[\n\t]*.*[\n\t]?.*<h3>(.*)<""",
-#                                                       re.IGNORECASE)
-#     return links_regex.findall(html)
-# =============================================================================
-        
-        
+            
 def get_emails(html):
     email_regex = re.compile(
         """<div class=["']views-row views-row-.*[\n\t]*.*[\n\t]*.*[\n\t]?.*<h3>.*</h3>[\n\t]*.*[\n\t]*</div>[\t\n]*<div>[\n\t]*.*[\n]*.*<div>[\n]*.*""",
@@ -93,7 +78,3 @@ if __name__ == '__main__':
                        default = sys.stdout)
     args = parser.parse_args()
     main(args.n, args.o)
-
-
-    
-    
